@@ -1,5 +1,6 @@
 import java.io.Serializable;
 
+@SuppressWarnings("serial")
 public class Connection implements Serializable {
 	public double weight;
 

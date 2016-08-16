@@ -2,13 +2,14 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 
+@SuppressWarnings("serial")
 public class Neuron implements Serializable {
 
 	private double output;
 	private double etaValue;
 	private double gradient;
 	public int neuronIndex;
-	public ArrayList<Connection> lineGroup = new ArrayList();
+	public ArrayList<Connection> lineGroup = new ArrayList<Connection>();
 	Random rand = new Random();
 
 	Neuron(int lineNo, int index, double eta) {

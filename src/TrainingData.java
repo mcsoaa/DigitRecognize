@@ -1,7 +1,3 @@
-import java.util.Arrays;
-
-import org.opencv.core.Mat;
-
 public class TrainingData {
 	private double[][] data;
 	private double[][] lableData;
@@ -109,9 +105,6 @@ public class TrainingData {
 	}
 
 	public double[][] downSampling(double[][] raw) {
-		int arrayLen = (int) Math.sqrt(raw[0].length);
-		double[][][] array3d = new double[raw.length][arrayLen][arrayLen];
-
 		int counter = 0;
 		double[][] downSample = new double[raw.length][(raw[0].length / 4)];
 		for (int i = 0; i < raw.length; i++) {

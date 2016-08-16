@@ -8,9 +8,7 @@ import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.List;
-
 import javax.swing.Timer;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -20,7 +18,6 @@ import javax.swing.JScrollPane;
 import javax.swing.SwingUtilities;
 import javax.swing.border.EmptyBorder;
 import org.opencv.core.Core;
-import org.opencv.core.Mat;
 
 import au.com.bytecode.opencsv.CSVReader;
 
@@ -42,10 +39,10 @@ public class Main {
 
 	public void combineTest() {
 		initNet(196, 1000, 4, 0.001, true); // The origin is 25 hidder layer
-		//initData();
-		//trainBigData();
-		//predict1kData();
-		//NNet.saveNet();
+		// initData();
+		// trainBigData();
+		// predict1kData();
+		// NNet.saveNet();
 		showUI("1000digit.csv");
 	}
 
@@ -135,7 +132,6 @@ public class Main {
 
 		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
 		initNet(400, 25, 2, 0.0001, false);
-		Preprocess pre_image = new Preprocess();
 		double[] bye1 = Preprocess.toDoubleArray(Preprocess.loadImageByte("icon.png"));
 		double[] bye2 = Preprocess.toDoubleArray(Preprocess.loadImageByte("icon2.png"));
 		double[] bye3 = Preprocess.toDoubleArray(Preprocess.loadImageByte("icon3.png"));
@@ -163,7 +159,7 @@ public class Main {
 		return input[0] * 8 + input[1] * 4 + input[2] * 2 + input[3];
 	}
 
-	//Data part
+	// Data part
 	public static TrainingData getCSVData(String filename) {
 		TrainingData tdata = new TrainingData();
 		try {
@@ -216,7 +212,7 @@ public class Main {
 		trainData.DS();
 	}
 
-	//Net part
+	// Net part
 	public void initNet(int inputLayer, int hiddenLayer, int outputLayer, double eta, boolean usedOld) {
 		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
 		if (usedOld)

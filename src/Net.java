@@ -5,10 +5,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 public class Net {
-	ArrayList<ArrayList<Neuron>> multiLayer = new ArrayList();
-	private int input;
-	private int hidden;
-	private int output;
+	ArrayList<ArrayList<Neuron>> multiLayer = new ArrayList<ArrayList<Neuron>>();
 
 	public Net() {
 		loadNet();
@@ -16,9 +13,6 @@ public class Net {
 
 	public Net(int inputLayer, int hiddenLayer, int outputLayer, double eta) {
 		initial();
-		input = inputLayer;
-		hidden = hiddenLayer;
-		output = outputLayer;
 		for (int i = 0; i < inputLayer; i++) {
 			multiLayer.get(0).add(new Neuron(hiddenLayer, i, eta));
 		}
@@ -118,6 +112,7 @@ public class Net {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	public ArrayList<Neuron> readFile(String fileName) {
 		ArrayList<Neuron> layer = null;
 		try {
